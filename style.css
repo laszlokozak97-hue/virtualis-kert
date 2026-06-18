@@ -13,7 +13,7 @@ body.dark-mode {
     color: white !important; 
 }
 
-/* Sötét mód gomb - villanykörte */
+/* Sötét mód gomb */
 #tema-gomb { 
     position: fixed; 
     top: 10px; 
@@ -24,19 +24,18 @@ body.dark-mode {
     cursor: pointer; 
 }
 
-/* CICA MÉRETE ÉS LÉLEGZŐ ANIMÁCIÓ - EZ A JAVÍTOTT RÉSZ */
+/* CICA MÉRETE ÉS LÉLEGZŐ ANIMÁCIÓ */
 #cica {
     font-size: 150px !important;
     margin: 40px 0 !important;
     display: block !important;
     text-align: center;
-    /* Az animáció most a konténerre vonatkozik */
     animation: lelegzes 3s infinite ease-in-out;
 }
 
 @keyframes lelegzes {
     0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.2); } /* Itt biztosan nagyobbra nő */
+    50% { transform: scale(1.2); }
 }
 
 /* Saiyan Aura */
@@ -50,7 +49,7 @@ body.dark-mode {
     animation: lelegzes 3s infinite ease-in-out;
 }
 
-/* Pohár és Víz */
+/* POHÁR ÉS VÍZ (Ez a rész maradt ki!) */
 #pohar { 
     width: 60px; 
     height: 100px; 
