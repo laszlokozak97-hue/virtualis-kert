@@ -56,3 +56,10 @@ body {
 
 .sotet-mod { background-color: #2c3e50; color: white; }
 .sotet-mod .kert { background-color: #34495e; }
+/* Az aura alapstílusa (rejtve) */
+.aura {
+    box-shadow: 0 0 20px 10px yellow;
+    border-radius: 50%;
+    display: inline-block;
+    transition: box-shadow 0.5s ease;
+}
