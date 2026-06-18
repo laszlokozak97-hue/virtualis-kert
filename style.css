@@ -78,3 +78,9 @@ button {
     margin: 5px;
     cursor: pointer;
 }
+button {
+    touch-action: manipulation; /* Ez segít a böngészőnek megérteni, hogy itt kattintani akarsz, nem nagyítani */
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+}
