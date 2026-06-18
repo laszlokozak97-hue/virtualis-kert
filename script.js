@@ -53,3 +53,7 @@ document.getElementById("simi-gomb").addEventListener("click", () => {
 temaGomb.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
 });
+// Megakadályozza a dupla koppintásos nagyítást
+document.documentElement.addEventListener('dblclick', function (e) {
+    e.preventDefault();
+}, { passive: false });
