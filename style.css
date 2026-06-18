@@ -13,7 +13,7 @@ body.dark-mode {
     color: white !important; 
 }
 
-/* Sötét mód gomb */
+/* Sötét mód gomb - villanykörte */
 #tema-gomb { 
     position: fixed; 
     top: 10px; 
@@ -24,18 +24,19 @@ body.dark-mode {
     cursor: pointer; 
 }
 
-/* CICA MÉRETE ÉS LÉLEGZŐ ANIMÁCIÓ */
+/* A CICA MÉRETE ÉS A LÉLEGZŐ ANIMÁCIÓ */
 #cica {
-    font-size: 150px !important;
-    margin: 40px 0 !important;
-    display: block !important;
-    text-align: center;
+    font-size: 150px !important; /* Nagy méret */
+    line-height: 1;
+    margin: 40px 0;
+    display: inline-block;
+    /* A lélegzés: 3 másodperces ciklusban nagyra nő, majd vissza */
     animation: lelegzes 3s infinite ease-in-out;
 }
 
 @keyframes lelegzes {
     0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.2); }
+    50% { transform: scale(1.15); } 
 }
 
 /* Saiyan Aura */
@@ -46,10 +47,11 @@ body.dark-mode {
         0 0 70px #ff9900,
         0 0 100px #ff4500;
     border-radius: 50%;
+    /* Az aura is követi a cica mozgását */
     animation: lelegzes 3s infinite ease-in-out;
 }
 
-/* POHÁR ÉS VÍZ (Ez a rész maradt ki!) */
+/* POHÁR ÉS VÍZ */
 #pohar { 
     width: 60px; 
     height: 100px; 
@@ -70,7 +72,7 @@ body.dark-mode {
     transition: height 0.5s ease; 
 }
 
-/* Gombok stílusa */
+/* Gombok elrendezése */
 button {
     padding: 10px 20px;
     margin: 5px;
