@@ -25,7 +25,6 @@ document.getElementById("itatas-gomb").addEventListener("click", () => {
     if (vizSzint < 100) {
         vizSzint += 10;
         vizDiv.style.height = vizSzint + "%";
-        vizDiv.style.backgroundColor = "blue";
     }
     uzenet.innerText = "A cica boldogan iszik!";
 });
@@ -34,12 +33,15 @@ document.getElementById("etetes-gomb").addEventListener("click", () => {
     etetesSzam++;
     statEtes.innerText = etetesSzam;
     frissitCica();
+    uzenet.innerText = "Finom falatok!";
+});
+
+document.getElementById("simi-gomb").addEventListener("click", () => {
+    try { hang.play(); } catch(e) {}
+    statuszKijelzo.innerText = "Státusz: " + statuszKijelzo.innerText + " (Dorombol 😻)";
+    uzenet.innerText = "Nagyon élvezi a simogatást!";
 });
 
 document.getElementById("tema-gomb").addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-});
-document.getElementById("tema-gomb").addEventListener("click", () => {
-    // Ez a varázsige: ha rajta van az osztály, leveszi, ha nincs rajta, ráteszi
     document.body.classList.toggle("dark-mode");
 });
