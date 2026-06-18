@@ -1,21 +1,23 @@
+// Elemek kiválasztása
 const statuszKijelzo = document.getElementById("statusz-kijelzo");
 const uzenet = document.getElementById("uzenet");
 const statEtes = document.getElementById("stat-etes");
 const cicaDiv = document.getElementById("cica");
 const vizDiv = document.getElementById("viz");
-const hang = new Audio('nyavas.mp3');
+const temaGomb = document.getElementById("tema-gomb");
 
 let etetesSzam = 0;
-let vizSzint = 100; // Kezdjük tele a pohárral
+let vizSzint = 50; // Kezdő vízszint
 
-// Víz fogyasztása percenként (60000 ms = 1 perc)
+// 1. VÍZ FOGYÁS: Minden 60 másodpercben csökken 10%-ot
 setInterval(() => {
     if (vizSzint > 0) {
-        vizSzint -= 5;
+        vizSzint -= 10;
         vizDiv.style.height = vizSzint + "%";
     }
 }, 60000);
 
+// 2. SZINTLÉPÉS LOGIKA
 function frissitCica() {
     let szint = "Kóbormacska";
     if (etetesSzam >= 250) { szint = "Szuper csillag macska ⭐"; cicaDiv.classList.add("aura"); }
@@ -23,9 +25,11 @@ function frissitCica() {
     else if (etetesSzam >= 150) szint = "Házi cica ❤️";
     else if (etetesSzam >= 100) szint = "Mentett jószág 🐾";
     else if (etetesSzam >= 50) szint = "Kóbormacska (túlélő) 🐈";
+    
     statuszKijelzo.innerText = "Státusz: " + szint;
 }
 
+// 3. GOMBOK MŰKÖDÉSE
 document.getElementById("itatas-gomb").addEventListener("click", () => {
     vizSzint = Math.min(100, vizSzint + 20);
     vizDiv.style.height = vizSzint + "%";
@@ -36,16 +40,16 @@ document.getElementById("etetes-gomb").addEventListener("click", () => {
     etetesSzam++;
     statEtes.innerText = etetesSzam;
     frissitCica();
-    // Véletlenszerű reakció etetésnél
-    const reakciok = ["Nyamm, ez finom! 🐟", "Fúj, ez nem ízlik!", "Tele a pocak! 😋", "Még kérek!"];
-    uzenet.innerText = reakciok[Math.floor(Math.random() * reakciok.length)];
+    const etetesUzenetek = ["Nyamm, ez finom! 🐟", "Fúj, ez nem ízlik!", "Tele a pocak! 😋", "Még kérek!"];
+    uzenet.innerText = etetesUzenetek[Math.floor(Math.random() * etetesUzenetek.length)];
 });
 
 document.getElementById("simi-gomb").addEventListener("click", () => {
-    try { hang.play(); } catch(e) {}
-    uzenet.innerText = etetesSzam > 20 ? "Dorombol: prrr... prrr... 😻" : "Fél tőled, de hagyja magát simogatni... 🐈";
+    const simiUzenetek = ["Dorombol: prrr... 😻", "Nyávog egyet neked! 😺", "Fúj rád, ne piszkáld! 😾", "Fél tőled... 🐈", "Bújik hozzád! ❤️"];
+    uzenet.innerText = simiUzenetek[Math.floor(Math.random() * simiUzenetek.length)];
 });
 
-document.getElementById("tema-gomb").addEventListener("click", () => {
+// 4. SÖTÉT MÓD KAPCSOLÓ
+temaGomb.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
 });
