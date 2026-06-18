@@ -39,3 +39,7 @@ document.getElementById("etetes-gomb").addEventListener("click", () => {
 document.getElementById("tema-gomb").addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
 });
+document.getElementById("tema-gomb").addEventListener("click", () => {
+    // Ez a varázsige: ha rajta van az osztály, leveszi, ha nincs rajta, ráteszi
+    document.body.classList.toggle("dark-mode");
+});
