@@ -24,20 +24,19 @@ body.dark-mode {
     cursor: pointer; 
 }
 
-/* CICA MÉRETE ÉS LÉLEGZŐ ANIMÁCIÓ */
+/* CICA MÉRETE ÉS LÉLEGZŐ ANIMÁCIÓ - EZ A JAVÍTOTT RÉSZ */
 #cica {
     font-size: 150px !important;
-    line-height: 1;
-    margin: 40px 0;
-    display: inline-block;
-    /* Ez kényszeríti a böngészőt, hogy kezelje az animációt */
-    will-change: transform;
+    margin: 40px 0 !important;
+    display: block !important;
+    text-align: center;
+    /* Az animáció most a konténerre vonatkozik */
     animation: lelegzes 3s infinite ease-in-out;
 }
 
 @keyframes lelegzes {
     0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.15); }
+    50% { transform: scale(1.2); } /* Itt biztosan nagyobbra nő */
 }
 
 /* Saiyan Aura */
