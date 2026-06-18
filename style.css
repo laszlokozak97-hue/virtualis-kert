@@ -24,22 +24,22 @@ body.dark-mode {
     cursor: pointer; 
 }
 
-/* A Cica mérete és alapja */
+/* A CICA MÉRETE (Ez a lényeg) */
 #cica {
-    font-size: 100px; /* A cica mérete */
-    margin: 40px auto;
-    display: inline-block;
+    font-size: 150px !important; /* Itt állítottam nagyobbra */
+    line-height: 1;
+    margin: 20px 0;
     transition: all 0.5s ease;
+    display: inline-block;
 }
 
-/* A Saiyan Aura - sűrű, sugárzó sárga fény */
+/* Saiyan Aura - sűrű, sugárzó fény */
 .aura {
     box-shadow: 
-        0 0 10px #fff,
-        0 0 20px #ff0,
+        0 0 20px #fff,
         0 0 40px #ff0,
-        0 0 80px #ff8c00,
-        0 0 100px #ff4500;
+        0 0 70px #ff9900,
+        0 0 100px #ff4500; /* Ez adja az igazi harcos hatást */
     border-radius: 50%;
     transform: scale(1.1);
 }
@@ -58,7 +58,7 @@ body.dark-mode {
 
 #viz { 
     width: 100%; 
-    height: 50%; /* Alapértelmezett vízszint */
+    height: 50%; 
     background-color: #3498db; 
     position: absolute; 
     bottom: 0; 
