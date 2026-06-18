@@ -1,62 +1,33 @@
-let vizSzint = parseInt(localStorage.getItem('vizSzint')) || 50;
-let statEtetes = parseInt(localStorage.getItem('statEtetes')) || 0;
-let statItatas = parseInt(localStorage.getItem('statItatas')) || 0;
-let xp = parseInt(localStorage.getItem('xp')) || 0;
+// Megkeressük a gombokat és a kijelzőt
+const statuszKijelzo = document.getElementById("statusz-kijelzo");
+const uzenet = document.getElementById("uzenet");
+const statEtes = document.getElementById("stat-etes");
 
-const vizElem = document.getElementById('viz');
-const cicaKarakter = document.getElementById('cica');
+let etetesSzam = 0;
 
-// Segítő funkció a rezgéshez
-function rezges() {
-  if (window.navigator.vibrate) window.navigator.vibrate(100);
-}
-
-function frissites() {
-  vizElem.style.height = vizSzint + "%";
-  document.getElementById('stat-etes').innerText = statEtetes;
-  document.getElementById('stat-itas').innerText = statItatas;
-  
-  let szint = Math.floor(xp / 200);
-  let statuszok = ["Kóbor", "Mentett", "Házi", "Szobatiszta", "Társ"];
-  document.getElementById('statusz-kijelzo').innerText = "Státusz: " + (statuszok[szint] || "Cica-gurus");
-  
-  localStorage.setItem('vizSzint', vizSzint);
-  localStorage.setItem('statEtetes', statEtetes);
-  localStorage.setItem('statItatas', statItatas);
-  localStorage.setItem('xp', xp);
-}
-
-document.getElementById('itatas-gomb').addEventListener('click', () => {
-  rezges();
-  vizSzint = Math.min(vizSzint + 10, 100);
-  statItatas++;
-  xp += 10;
-  frissites();
+// Itatás funkció
+document.getElementById("itatas-gomb").addEventListener("click", () => {
+    statuszKijelzo.innerText = "Státusz: Megitatva 💧";
+    uzenet.innerText = "A macska boldogan iszik!";
 });
 
-document.getElementById('etetes-gomb').addEventListener('click', () => {
-  rezges();
-  statEtetes++;
-  xp += 10;
-  frissites();
+// Etetés funkció
+document.getElementById("etetes-gomb").addEventListener("click", () => {
+    statuszKijelzo.innerText = "Státusz: Jól lakott 🐟";
+    etetesSzam++;
+    statEtes.innerText = etetesSzam;
+    uzenet.innerText = "Finom falatok!";
 });
 
-document.getElementById('simi-gomb').addEventListener('click', () => {
-  rezges();
-  if (xp >= 50) { xp += 20; alert("Dorombol!"); } 
-  else { alert("Még fél tőled!"); }
-  frissites();
+// Simogatás funkció
+document.getElementById("simi-gomb").addEventListener("click", () => {
+    statuszKijelzo.innerText = "Státusz: Dorombol 😻";
+    uzenet.innerText = "Nagyon élvezi a simogatást!";
 });
 
-document.getElementById('tema-gomb').addEventListener('click', () => {
-  rezges();
-  document.body.classList.toggle('sotet-mod');
+// Sötét mód
+document.getElementById("tema-gomb").addEventListener("click", () => {
+    document.body.style.backgroundColor = "#333";
+    document.body.style.color = "white";
+    uzenet.innerText = "Sötét mód bekapcsolva!";
 });
-
-setInterval(() => {
-  vizSzint = Math.max(vizSzint - 5, 0);
-  xp = Math.max(xp - 2, 0);
-  frissites();
-}, 60000);
-
-frissites();
