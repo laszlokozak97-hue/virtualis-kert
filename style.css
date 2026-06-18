@@ -25,20 +25,21 @@ body.dark-mode {
 }
 
 /* CICA MÉRETE ÉS LÉLEGZŐ ANIMÁCIÓ */
-#cica {
+#cica {#cica {
     font-size: 150px !important;
     line-height: 1;
     margin: 40px 0;
     display: inline-block;
+    /* Fontos: A 'display: inline-block' helyett próbáld meg 'display: block'-ra írni */
+    display: block; 
     animation: lelegzes 3s infinite ease-in-out;
 }
 
 @keyframes lelegzes {
     0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
+    50% { transform: scale(1.15); } /* Picit nagyobbra vettem, hogy jobban látszódjon */
     100% { transform: scale(1); }
 }
-
 /* Saiyan Aura - sűrű, sugárzó fény */
 .aura {
     box-shadow: 
