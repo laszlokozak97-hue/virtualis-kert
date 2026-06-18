@@ -83,4 +83,8 @@ button {
     padding: 10px 20px;
     margin: 5px;
     cursor: pointer;
+body { 
+    /* ... a meglévő beállítások ... */
+    touch-action: manipulation;
+    -webkit-text-size-adjust: 100%; /* Ez megakadályozza az iOS betűméret-nagyítást */
 }
