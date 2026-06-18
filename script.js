@@ -48,3 +48,18 @@ document.getElementById("tema-gomb").addEventListener("click", () => {
     document.body.style.color = document.body.style.color === "white" ? "black" : "white";
     uzenet.innerText = "Téma váltva!";
 });
+// Új változó a vízszintnek
+let vizSzint = 0;
+
+// Itatás funkció frissítése
+document.getElementById("itatas-gomb").addEventListener("click", () => {
+    statuszKijelzo.innerText = "Státusz: " + cicaSzint + " (Megitatva 💧)";
+    uzenet.innerText = "A cica boldogan iszik!";
+    
+    // Vízszint növelése (max 100%)
+    if (vizSzint < 100) {
+        vizSzint += 10; 
+        document.getElementById("viz").style.height = vizSzint + "%";
+        document.getElementById("viz").style.backgroundColor = "blue"; // Legyen kék a víz
+    }
+});
