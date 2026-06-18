@@ -1,32 +1,32 @@
 const statuszKijelzo = document.getElementById("statusz-kijelzo");
 const uzenet = document.getElementById("uzenet");
 const statEtes = document.getElementById("stat-etes");
-const cicaDiv = document.getElementById("cica"); // Ezt most hozzáadtuk
+const cicaDiv = document.getElementById("cica");
+const vizDiv = document.getElementById("viz");
 const hang = new Audio('nyavas.mp3');
 
 let etetesSzam = 0;
-let cicaSzint = "Kóbormacska";
+let vizSzint = 0;
 
 function frissitCica() {
+    let szint = "Kóbormacska";
     if (etetesSzam >= 250) {
-        cicaSzint = "Szuper csillag macska ⭐";
-        cicaDiv.classList.add("aura"); // Itt adjuk hozzá az aurát!
-    } else if (etetesSzam >= 200) {
-        cicaSzint = "Szobatiszta kis kedvenc 🏠";
-    } else if (etetesSzam >= 150) {
-        cicaSzint = "Házi cica ❤️";
-    } else if (etetesSzam >= 100) {
-        cicaSzint = "Mentett jószág 🐾";
-    } else if (etetesSzam >= 50) {
-        cicaSzint = "Kóbormacska (túlélő) 🐈";
-    } else {
-        cicaSzint = "Kóbormacska";
-    }
-    statuszKijelzo.innerText = "Státusz: " + cicaSzint;
+        szint = "Szuper csillag macska ⭐";
+        cicaDiv.classList.add("aura");
+    } else if (etetesSzam >= 200) szint = "Szobatiszta kis kedvenc 🏠";
+    else if (etetesSzam >= 150) szint = "Házi cica ❤️";
+    else if (etetesSzam >= 100) szint = "Mentett jószág 🐾";
+    else if (etetesSzam >= 50) szint = "Kóbormacska (túlélő) 🐈";
+    
+    statuszKijelzo.innerText = "Státusz: " + szint;
 }
 
 document.getElementById("itatas-gomb").addEventListener("click", () => {
-    statuszKijelzo.innerText = "Státusz: " + cicaSzint + " (Megitatva 💧)";
+    if (vizSzint < 100) {
+        vizSzint += 10;
+        vizDiv.style.height = vizSzint + "%";
+        vizDiv.style.backgroundColor = "blue";
+    }
     uzenet.innerText = "A cica boldogan iszik!";
 });
 
@@ -34,32 +34,8 @@ document.getElementById("etetes-gomb").addEventListener("click", () => {
     etetesSzam++;
     statEtes.innerText = etetesSzam;
     frissitCica();
-    uzenet.innerText = "Finom falatok!";
-});
-
-document.getElementById("simi-gomb").addEventListener("click", () => {
-    hang.play();
-    statuszKijelzo.innerText = "Státusz: " + cicaSzint + " (Dorombol 😻)";
-    uzenet.innerText = "Nagyon élvezi a simogatást!";
 });
 
 document.getElementById("tema-gomb").addEventListener("click", () => {
-    document.body.style.backgroundColor = document.body.style.backgroundColor === "rgb(51, 51, 51)" ? "white" : "#333";
-    document.body.style.color = document.body.style.color === "white" ? "black" : "white";
-    uzenet.innerText = "Téma váltva!";
-});
-// Új változó a vízszintnek
-let vizSzint = 0;
-
-// Itatás funkció frissítése
-document.getElementById("itatas-gomb").addEventListener("click", () => {
-    statuszKijelzo.innerText = "Státusz: " + cicaSzint + " (Megitatva 💧)";
-    uzenet.innerText = "A cica boldogan iszik!";
-    
-    // Vízszint növelése (max 100%)
-    if (vizSzint < 100) {
-        vizSzint += 10; 
-        document.getElementById("viz").style.height = vizSzint + "%";
-        document.getElementById("viz").style.backgroundColor = "blue"; // Legyen kék a víz
-    }
+    document.body.classList.toggle("dark-mode");
 });
