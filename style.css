@@ -27,6 +27,18 @@ body {
   animation: lelegzes 3s infinite ease-in-out; 
   cursor: pointer;
 }
+/* Ez az, ami érvénybe lép, ha a gombot megnyomod */
+body.dark-mode {
+    background-color: #333; /* Sötét háttér */
+    color: white;           /* Fehér betűszín */
+}
+
+/* A gomb pozíciója */
+#tema-gomb {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
 
 @keyframes lelegzes { 
   0% { transform: scale(1); } 
